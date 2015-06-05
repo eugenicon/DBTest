@@ -95,7 +95,7 @@ public class SqlManager{
 	}
 
 	public static void setConnectionUrl(String connectionUrl) {
-		if (manager.connectionUrl != connectionUrl) {
+		if (!manager.connectionUrl.equals(connectionUrl)) {
 			disconnect();
 		}
 		manager.connectionUrl = connectionUrl;
@@ -106,7 +106,7 @@ public class SqlManager{
 	}
 
 	public static void setServer(String server) {
-		if (manager.server != server) {
+		if (!manager.server.equals(server)) {
 			disconnect();
 		}
 		manager.server = server;
@@ -118,7 +118,7 @@ public class SqlManager{
 	}
 
 	public static void setUser(String user) {
-		if (manager.user != user) {
+		if (!manager.user.equals(user)) {
 			disconnect();
 		}
 		manager.user = user;
@@ -129,7 +129,7 @@ public class SqlManager{
 	}
 
 	public static void setPassword(String password) {
-		if (manager.password != password) {
+		if (!manager.password.equals(password)) {
 			disconnect();
 		}
 		manager.password = password;
@@ -159,7 +159,7 @@ public class SqlManager{
 	public static List<String> getDatabaseList(List<String> dbs) {
 		
 		if (dbs == null) {
-			dbs = new ArrayList<String>();
+			dbs = new ArrayList<>();
 		}
 		
 		try {
@@ -182,7 +182,7 @@ public class SqlManager{
 	public static List<String> getTableList(List<String> tbls) {
 		
 		if (tbls == null) {
-			tbls = new ArrayList<String>();
+			tbls = new ArrayList<>();
 		}
 		
 		try {
@@ -207,7 +207,7 @@ public class SqlManager{
 	public static List<Map<String, String>> getTableData(String table, List<Map<String, String>> data) {
 		
 		if (data == null) {
-			data = new ArrayList<Map<String, String>>();
+			data = new ArrayList<>();
 		}
 				
 		try {

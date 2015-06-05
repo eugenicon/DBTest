@@ -92,7 +92,7 @@ public class MainSceneController implements Initializable {
 			SqlManager.connect();
 			SqlManager.getDatabaseList(databases);
 			
-			Platform.runLater(() -> databaseList.show());
+			Platform.runLater(databaseList::show);
 				
 		}
 		
