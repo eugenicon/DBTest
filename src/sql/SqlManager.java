@@ -16,19 +16,20 @@ public class SqlManager{
 	private static SqlManager manager = new SqlManager();
 	private Connection connection;
 	private Statement executor;
-	
+
+	private static final String className = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 	private static final String DRIVER = "jdbc:sqlserver://";
-	
-	private String connectionUrl = "jdbc:sqlserver://localhost;"; 
+
 	private String server = "localhost";
-	
+	private String connectionUrl = DRIVER + server;
+
 	private String user = "Admin123"; 
 	private String password = "123Admin";
 	private String database;
 
 	private SqlManager(){
 		try {
-			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+			Class.forName(className);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
