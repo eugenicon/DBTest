@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainSceneController">
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+   <top>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="10.0" prefWidth="40.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Server" />
+            <TextField fx:id="serverField" onKeyReleased="#onServerChanged" GridPane.columnIndex="1" />
+            <Label text="User" GridPane.rowIndex="1" />
+            <TextField fx:id="userField" onKeyReleased="#onUserChanged" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Password" GridPane.rowIndex="2" />
+            <PasswordField fx:id="passwordField" onKeyReleased="#onPasswordChanged" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Database" GridPane.rowIndex="3" />
+            <HBox GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <children>
+                  <ChoiceBox fx:id="databaseList" maxWidth="1.7976931348623157E308" onMouseClicked="#afterDbSelection" onMousePressed="#beforeDbSelection" HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" onAction="#onDbAdd" text="+" />
+               </children>
+            </HBox>
+         </children>
+      </GridPane>
+   </top>
+   <center>
+      <SplitPane dividerPositions="0.3" prefHeight="160.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+         <items>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <ListView fx:id="tableList" onMouseClicked="#afterTableSelection" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <TableView fx:id="tableContentView" onScroll="#onTableScroll" onScrollFinished="#onTableScroll" onScrollStarted="#onTableScroll" onScrollTo="#onTableScroll" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
+         </items>
+      </SplitPane>
+   </center>
+</BorderPane>
